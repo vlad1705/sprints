@@ -1,39 +1,25 @@
 package com.company.sprint1;
 
 public class Main {
+
     public static void main(String[] args) {
+        float b = 6;
+        System.out.println(b);
 
-//        System.out.println(IsPalindrome(121));
-//        System.out.println(mySqrt(4));
-//        System.out.println(reverse(0));
+        System.out.println(century(300));
+        System.out.println(sumOfDigits(999));
+        System.out.println(isLeapYear(2000));
     }
 
-    static int mySqrt(int x) {
-        return (int)Math.sqrt(x*2);
+    public static boolean isLeapYear(int year) {
+        return ((year % 4 == 0) && !((year%100 == 0) && !(year%400 == 0))) ? true : false;
     }
 
-    static int reverse(int x) {
-        String reversing = Integer.toString(x);
-        String c = reversing.contains("-") ? "-" : "";
-        for (int i = reversing.length() - 1; i >= 0; i--) {
-            if (reversing.charAt(reversing.length() - 1) != 0)
-                c += reversing.charAt(i) == '-' ? "" : reversing.charAt(i);
-        }
-        return Integer.parseInt(c);
+    public static int century(int year) {
+        return (year%100 != 0) ? year/100 + 1 : year/100;
+    }
+    public static int sumOfDigits(int number) {
+        return (number / 100) + (number % 100 / 10) + (number % 100 % 10) ;
     }
 
-    static boolean IsPalindrome(int x){
-        String polindrom = Integer.toString(x);
-        String c = "";
-        // 1 variant
-        //        StringBuffer buffer = new StringBuffer(polindrom);
-        //        String c = buffer.reverse().substring(0);
-
-        // 2 variant
-        for(int i = polindrom.length()-1; i >= 0; i--)
-            c+= polindrom.charAt(i);
-
-        boolean isPalondrome = c.equalsIgnoreCase(polindrom);
-        return isPalondrome;
-    }
 }
